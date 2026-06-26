@@ -73,7 +73,7 @@
 								<?php foreach($tarefas as $indice => $tarefa){ ?>
 									<div class="row mb-3 d-flex align-items-center tarefa" id="tarefa_<?= $tarefa->id ?>">
 										
-										<div class="col-sm-9">
+										<div class="col-sm-9" id="tarefa_<?= $tarefa->$tarefa ?>">
 											<?= $tarefa->tarefa ?> (<?= $tarefa->status ?>)
 										</div>
 
