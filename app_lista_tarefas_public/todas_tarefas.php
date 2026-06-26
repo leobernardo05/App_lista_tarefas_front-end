@@ -8,8 +8,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>App Lista Tarefas</title>
+    <met??e>App Lista Tarefas</title>
 
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -58,6 +57,15 @@
             // Inserir formulário
             tarefa.appendChild(form)
         }
+
+
+		function remover(id) {
+			location.href = 'todas_tarefas.php?acao=remover&id='+id;
+		}
+
+		function marcarRealizada(id){
+			location.href = 'todas_tarefas.php?acao=marcarRealizada&id='+id;
+		}
 
     </script>
 
@@ -115,13 +123,17 @@
 
                                     <div class="col-sm-3 mt-2 d-flex justify-content-between">
 
-                                        <i class="fas fa-trash-alt fa-lg text-danger"></i>
+                                        <i class="fas fa-trash-alt fa-lg text-danger"
+											onclick="remover(<?= $tarefa->id ?>)">
+										</i>
 
                                         <i class="fas fa-edit fa-lg text-info"
                                            onclick="editar(<?= $tarefa->id ?>, <?= htmlspecialchars(json_encode($tarefa->tarefa), ENT_QUOTES, 'UTF-8') ?>)">
                                         </i>
 
-                                        <i class="fas fa-check-square fa-lg text-success"></i>
+                                        <i class="fas fa-check-square fa-lg text-success"
+											onclick="marcarRealizada(<?= $tarefa->id ?>)">
+										</i>
 
                                     </div>
 
